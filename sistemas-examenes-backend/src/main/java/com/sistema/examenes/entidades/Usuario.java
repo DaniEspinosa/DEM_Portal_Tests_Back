@@ -3,6 +3,8 @@ package com.sistema.examenes.entidades;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,11 +27,12 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private int telefono;
+	private String telefono;
 	private boolean enabled = true;
 	private String perfil;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuario")
+	@JsonIgnore
 	private Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
 	public Long getId() {
@@ -80,11 +83,11 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
