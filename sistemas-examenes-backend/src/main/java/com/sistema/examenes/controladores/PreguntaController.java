@@ -62,7 +62,7 @@ public class PreguntaController {
 		return preguntaService.obtenerPregunta(preguntaId);
 	}
 	
-	@DeleteMapping("/{preguntaId")
+	@DeleteMapping("/{preguntaId}")
 	public void eliminarPregunta(@PathVariable("preguntaId")Long preguntaId) {
 		preguntaService.eliminarPregunta(preguntaId);
 	}
